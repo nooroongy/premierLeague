@@ -1,4 +1,4 @@
-# Hellor PL
+# Hello PL
 
 ### `no EPL just PL`
 
