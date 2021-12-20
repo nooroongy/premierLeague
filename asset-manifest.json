@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/premierLeague/static/css/main.6c967791.css",
+    "main.js": "/premierLeague/static/js/main.31fc5763.js",
+    "index.html": "/premierLeague/index.html",
+    "main.6c967791.css.map": "/premierLeague/static/css/main.6c967791.css.map",
+    "main.31fc5763.js.map": "/premierLeague/static/js/main.31fc5763.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6c967791.css",
+    "static/js/main.31fc5763.js"
+  ]
+}
