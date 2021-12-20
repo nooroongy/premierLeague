@@ -12,9 +12,9 @@ function App({teams}) {
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='/*' element={<Home teams={teams}/>}></Route>
-        <Route path='/match' element={<Match teams={teams}/>}></Route>
-        <Route path='/table' element={<Table teams={teams}/>}></Route>
+        <Route path='premierLeague/*' element={<Home teams={teams}/>}></Route>
+        <Route path='premierLeague/match' element={<Match teams={teams}/>}></Route>
+        <Route path='premierLeague/table' element={<Table teams={teams}/>}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
