@@ -3,7 +3,27 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
     name: 'useReducer',
     initialState: {
-        teams: ['arsenal', 'team01', 'team02', 'team03', 'team04', 'team05', 'team06', 'MU']
+        clubs: ['Arsenal',
+        'Aston Villa',
+        'Brentford',
+        'Brighton and Hove Albion',
+        'Burnley',
+        'Chelsea',
+        'Crystal Palace',
+        'Everton',
+        'Leeds United',
+        'Leicester City',
+        'Liverpool',
+        'Manchester City',
+        'Manchester United',
+        'Newcastle United',
+        'Norwich City',
+        'Southampton',
+        'Tottenham Hotspur',
+        'Watford',
+        'West Ham United',
+        'Wolverhampton Wanderers',
+        ]
     },
     reducers: {
     }
@@ -11,3 +31,4 @@ const slice = createSlice({
 
 export const ACTION = slice.actions;
 export default configureStore({ reducer: slice.reducer })
+

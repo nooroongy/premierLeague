@@ -2,19 +2,19 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Home from "./routes/Home";
-import Match from "./routes/Match";
-import Table from "./routes/Table";
+import Results from "./routes/Results";
+import Tables from "./routes/Tables";
 import './css/common.css'
 import { connect } from "react-redux";
 
-function App({teams}) {
+function App({clubs}) {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path='premierLeague/*' element={<Home teams={teams}/>}></Route>
-        <Route path='premierLeague/match' element={<Match teams={teams}/>}></Route>
-        <Route path='premierLeague/table' element={<Table teams={teams}/>}></Route>
+        <Route path='premierLeague/*' element={<Home clubs={clubs}/>}></Route>
+        <Route path='premierLeague/result' element={<Results clubs={clubs}/>}></Route>
+        <Route path='premierLeague/table' element={<Tables clubs={clubs}/>}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -22,8 +22,8 @@ function App({teams}) {
 }
 
 function mapStateToProps(state){
-    const {teams} = state;
-    return {teams}
+    const {clubs} = state;
+    return {clubs}
 }
 
 export default connect(mapStateToProps)(App);

@@ -4,13 +4,13 @@ import '../css/footer.css'
 function Footer() {
     return <div className='footer-wrap'>
         <Link to='premierLeague/table'>
-            <button className='footer-btn'>table</button>
+            <button className='footer-btn'>Tables</button>
         </Link>
         <Link to='premierLeague'>
-            <button className='footer-btn'>home</button>
+            <button className='footer-btn'>Home</button>
         </Link>
-        <Link to='premierLeague/match'>
-            <button className='footer-btn'>match</button>
+        <Link to='premierLeague/result'>
+            <button className='footer-btn'>Results</button>
         </Link>
     </div>
 }

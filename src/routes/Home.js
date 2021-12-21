@@ -1,6 +1,6 @@
-const Home = ({ teams }) => {
+const Home = ({ clubs }) => {
     return <>
-        {teams.map((v, i) => <div key={i}>Home {v}</div>)}
+        {clubs.map((v, i) => <div key={i}>Home {v}</div>)}
     </>
 }
 
