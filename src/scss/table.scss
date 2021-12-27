@@ -1,0 +1,11 @@
+$color01 : red;
+$color02 : blue;
+$color03 : green;
+
+.test{
+    &0{color:$color01}
+    &1{color:$color02}
+    &2{color:$color03}
+}
+
+// C:\react_study\epl>sass --watch src\scss:src\css 
