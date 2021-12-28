@@ -7,14 +7,14 @@ import Tables from "./routes/Tables";
 import './css/common.css'
 import { connect } from "react-redux";
 
-function App({clubs}) {
+function App({clubs,matchs}) {
   return (
     <BrowserRouter>
       <Header />
       <Routes>
         <Route path='premierLeague/*' element={<Home clubs={clubs}/>}></Route>
         <Route path='premierLeague/result' element={<Results clubs={clubs}/>}></Route>
-        <Route path='premierLeague/table' element={<Tables clubs={clubs}/>}></Route>
+        <Route path='premierLeague/table' element={<Tables clubs={clubs} matchs={matchs}/>}></Route>
       </Routes>
       <Footer />
     </BrowserRouter>
@@ -22,8 +22,8 @@ function App({clubs}) {
 }
 
 function mapStateToProps(state){
-    const {clubs} = state;
-    return {clubs}
+    const {clubs,matchs} = state;
+    return {clubs,matchs}
 }
 
 export default connect(mapStateToProps)(App);
