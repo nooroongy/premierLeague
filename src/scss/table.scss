@@ -1,11 +1,48 @@
-$color01 : red;
-$color02 : blue;
-$color03 : green;
+// font-family: 'Jua', sans-serif;
+// font-family: 'Noto Sans KR', sans-serif;
+// font-family: 'Poppins', sans-serif;
 
-.test{
-    &0{color:$color01}
-    &1{color:$color02}
-    &2{color:$color03}
+//sass --watch src\scss:src\css
+
+%line {
+    display: grid;
+    grid-template-columns: 2fr 6fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    justify-items: center;
 }
 
-//sass --watch src\scss:src\css 
+.table {
+    &__wrap {
+        display: inline-grid;
+        // border: 1px solid black;
+        width: 780px;
+        height: 605px;
+        font-family: "Poppins", sans-serif;
+        padding: 5px;
+    }
+
+    &__header {
+        @extend %line;
+        padding: 5px 9px;
+        background-color: #f7f7f7;
+        height: 35px;
+
+        span {
+            font: {
+                size: 0.8em;
+                weight: 600;
+            }
+        }
+    }
+
+    &__list {
+        @extend %line;
+        height: 45px;
+
+        @each $num in 2, 5, 6, 18 {
+            &:nth-child(#{$num}) {
+                border-bottom: 1px solid black;
+            }
+        }
+    }
+}

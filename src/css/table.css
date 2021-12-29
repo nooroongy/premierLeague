@@ -1,11 +1,40 @@
-.test0 {
-  color: red;
+.table__list, .table__header {
+  display: grid;
+  grid-template-columns: 2fr 6fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  justify-items: center;
 }
-.test1 {
-  color: blue;
+
+.table__wrap {
+  display: inline-grid;
+  width: 780px;
+  height: 605px;
+  font-family: "Poppins", sans-serif;
+  padding: 5px;
 }
-.test2 {
-  color: green;
+.table__header {
+  padding: 5px 9px;
+  background-color: #f7f7f7;
+  height: 35px;
+}
+.table__header span {
+  font-size: 0.8em;
+  font-weight: 600;
+}
+.table__list {
+  height: 45px;
+}
+.table__list:nth-child(2) {
+  border-bottom: 1px solid black;
+}
+.table__list:nth-child(5) {
+  border-bottom: 1px solid black;
+}
+.table__list:nth-child(6) {
+  border-bottom: 1px solid black;
+}
+.table__list:nth-child(18) {
+  border-bottom: 1px solid black;
 }
 
 /*# sourceMappingURL=table.css.map */
