@@ -1,0 +1,17 @@
+.tables__wrap {
+  display: grid;
+  justify-items: center;
+  margin-top: 50px;
+  height: 95vh;
+  overflow: auto;
+}
+.tables__wrap button {
+  font-family: "Material Icons";
+  font-size: 2em;
+  border: none;
+  background: none;
+  height: 29px;
+  padding: 0px;
+}
+
+/*# sourceMappingURL=tables.css.map */
