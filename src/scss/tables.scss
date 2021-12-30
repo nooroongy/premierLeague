@@ -1,7 +1,20 @@
-.tables__wrap{
-    display: grid;
-    justify-items: center;
-    margin-top: 50px;
-    height: 95vh;
-    overflow: auto;
+.tables__ {
+    &wrap {
+        display: grid;
+        justify-items: center;
+        margin-top: 50px;
+        height: 95vh;
+        overflow: auto;
+
+        button {
+            font: {
+                family: "Material Icons";
+                size: 2em;
+            }
+            border: none;
+            background: none;
+            height: 29px;
+            padding: 0px;
+        }
+    }
 }

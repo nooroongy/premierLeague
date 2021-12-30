@@ -10,7 +10,7 @@ const Table = ({ clubs, matchs, round }) => {
         const { home, away, score } = match;
 
         if (match.round <= round) {
-            if (score[0] === score[1] > 0) { //무승부
+            if (score[0] === score[1]) { //무승부
                 tmpData[home].drawn++;
                 tmpData[away].drawn++;
                 tmpData[home].pts++;
@@ -48,7 +48,6 @@ const Table = ({ clubs, matchs, round }) => {
         }
     }).sort((a, b) => { return b.gf - a.gf }).sort((a, b) => { return b.gd - a.gd }).sort((a, b) => { return b.pts - a.pts })
 
-    console.log(resultData)
 
     return <div className='table__wrap'>
         <span className='table__header'>
@@ -71,13 +70,12 @@ const Table = ({ clubs, matchs, round }) => {
                 <span>{v.club}</span>
                 <span>{round}</span>
                 <span>{v.won}</span>
-                <span>{v.lost}</span>
                 <span>{v.drawn}</span>
+                <span>{v.lost}</span>
                 <span>{v.gf}</span>
                 <span>{v.ga}</span>
                 <span>{v.gd}</span>
                 <span>{v.pts}</span>
-
             </span>)}
     </div>
 }

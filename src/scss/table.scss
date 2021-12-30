@@ -16,9 +16,10 @@
         display: inline-grid;
         // border: 1px solid black;
         width: 780px;
-        height: 605px;
         font-family: "Poppins", sans-serif;
         padding: 5px;
+        margin-bottom: 100px;
+        height:45px * 20 + 35px; //헤더 + 팀20라인
     }
 
     &__header {

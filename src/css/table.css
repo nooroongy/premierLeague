@@ -8,9 +8,10 @@
 .table__wrap {
   display: inline-grid;
   width: 780px;
-  height: 605px;
   font-family: "Poppins", sans-serif;
   padding: 5px;
+  margin-bottom: 100px;
+  height: 935px;
 }
 .table__header {
   padding: 5px 9px;
