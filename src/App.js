@@ -13,7 +13,7 @@ function App({clubs,matchs}) {
       <Header />
       <Routes>
         <Route path='premierLeague/*' element={<Home clubs={clubs}/>}></Route>
-        <Route path='premierLeague/result' element={<Results clubs={clubs}/>}></Route>
+        <Route path='premierLeague/result' element={<Results clubs={clubs} matchs={matchs}/>}></Route>
         <Route path='premierLeague/table' element={<Tables clubs={clubs} matchs={matchs}/>}></Route>
       </Routes>
       <Footer />
