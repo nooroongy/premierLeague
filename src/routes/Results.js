@@ -3,10 +3,14 @@ import Board from "../components/Results/Board";
 import { useState, useEffect } from "react";
 
 const Results = ({ clubs }) => {
-    const [round, changeRound] = useState("1R");
+    const [round, changeRound] = useState(1);
+
+    const roundInfo = (arg) => {
+        changeRound(arg);
+    }
     return (
         <>
-            <Round></Round>
+            <Round roundInfo={roundInfo}></Round>
             <Board roundObj={round}></Board>
         </>
     )

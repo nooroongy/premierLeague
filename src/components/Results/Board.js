@@ -7,7 +7,7 @@ import { collection, getDocs } from 'firebase/firestore';
 
 const Board = (roundObj) => {
     const [matchData, setData] = useState([]);
-    const roundInfo = roundObj.roundObj;
+    const roundInfo = roundObj.roundObj+"R";
 
     const colName = "fixtures";
     const usersCollectionRef = collection(database, colName);
@@ -27,7 +27,7 @@ const Board = (roundObj) => {
     const renderMatches = (matchInfo) => {
         return (
             Object.keys(matchInfo).map((round, index) => {
-                console.log(round);
+                // console.log(round);
                 const home = matchInfo[round]["homeClub"];
                 const away = matchInfo[round]["awayClub"];
                 return(
