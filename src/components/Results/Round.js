@@ -1,7 +1,8 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Carousel } from 'react-bootstrap';
 import { useState, useEffect } from "react";
-import { database } from '../Firebase';
+// import { database } from '../Firebase';
+import { FB_DB } from '../Firebase';
 import { collection, getDocs } from 'firebase/firestore';
 import 'holderjs';
 
@@ -20,18 +21,28 @@ const Round = ({roundInfo}) => {
     };
 
     const colName = "fixtures";
-    const usersCollectionRef = collection(database, colName);
+    // const usersCollectionRef = collection(database, colName);
+    // useEffect(() => {
+    //     const getResults = async () => {
+    //         const data = await getDocs(usersCollectionRef);
+    //         let tmpArray = [];
+    //         for(let i=1; i<data.docs.length+1; i++){
+    //             tmpArray.push(i);
+    //         }
+    //         setRound(tmpArray);
+    //     };
+    //     getResults();
+    // }, []);
+
     useEffect(() => {
-        const getResults = async () => {
-            const data = await getDocs(usersCollectionRef);
+        FB_DB.get(colName).then(res => {
             let tmpArray = [];
-            for(let i=1; i<data.docs.length+1; i++){
+            for(let i=1; i<res.length+1; i++){
                 tmpArray.push(i);
             }
             setRound(tmpArray);
-        };
-        getResults();
-    }, []);
+          });;
+    }, [roundInfo]);
 
     const renderRound = () => {
         return (

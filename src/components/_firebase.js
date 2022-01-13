@@ -1,9 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider, signOut, signInWithRedirect, signInWithPopup ,onAuthStateChanged} from "firebase/auth";
 import { getFirestore,getDocs,collection,addDoc,deleteDoc ,doc,updateDoc} from "firebase/firestore"
-// import 'bootstrap/dist/css/bootstrap.min.css';
-import firebaseInfo from '../json/firebase.json'; 
-const firebaseConfig = firebaseInfo;
+const firebaseConfig = {
+  apiKey: "AIzaSyDbUluFwoJWUYGUysFeUy4Vr0zHYDSNFU0",
+  authDomain: "good-sleep-a2c34.firebaseapp.com",
+  projectId: "good-sleep-a2c34",
+  storageBucket: "good-sleep-a2c34.appspot.com",
+  messagingSenderId: "955570029105",
+  appId: "1:955570029105:web:a1ed5ab2685746c74e0b10",
+  measurementId: "G-6RBM2RW3BN"
+};
 
 initializeApp(firebaseConfig);
 export const provider = new GoogleAuthProvider();

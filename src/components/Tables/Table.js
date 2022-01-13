@@ -1,10 +1,10 @@
 import '../../css/table.css'
+import logoJson from '../../json/logo.json';
 
 const Table = ({ clubs, matchs, round }) => {
     let tmpData = Object.fromEntries(new Map(
         clubs.map(club => { return [club, { won: 0, lost: 0, drawn: 0, gf: 0, ga: 0, gd: 0, pts: 0 }] })
     ))
-
 
     matchs.forEach(match => {
         const { home, away, score } = match;
@@ -48,7 +48,6 @@ const Table = ({ clubs, matchs, round }) => {
         }
     }).sort((a, b) => { return b.gf - a.gf }).sort((a, b) => { return b.gd - a.gd }).sort((a, b) => { return b.pts - a.pts })
 
-
     return <div className='table__wrap'>
         <span className='table__header'>
             <span>Position</span>
@@ -67,7 +66,10 @@ const Table = ({ clubs, matchs, round }) => {
                 className='table__list'
                 key={i}>
                 <span>{i+1}</span>
-                <span>{v.club}</span>
+                <span>
+                    <img src ={logoJson[v.club.replaceAll('_',' ')]}></img>
+                    {v.club.replaceAll('_',' ')}
+                </span>
                 <span>{round}</span>
                 <span>{v.won}</span>
                 <span>{v.drawn}</span>
