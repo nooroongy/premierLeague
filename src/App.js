@@ -20,7 +20,7 @@ function App({ clubs, matchs }) {
           <Route path='premierLeague/nft' element={<Nft></Nft>}></Route>
         </Routes>
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </BrowserRouter>
   );
 }
