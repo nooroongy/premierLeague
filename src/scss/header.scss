@@ -1,0 +1,42 @@
+%init{
+    background: none;
+    border:none;
+}
+
+.header-{
+    &wrap{
+        width: 100vw;
+        height: 80px;
+        position: fixed;
+        background: linear-gradient(125deg,#37003c,#e32677);
+        display: flex;
+        top: 0;
+        align-items: center;
+        padding-left: 20px;
+        padding-top: 15px;
+    }
+
+    &buttonset{
+        width: 180px;
+        display: inline-flex;
+        justify-content: space-between;
+    }
+
+    &link{
+        @extend %init;
+        color: white;
+        font-family: "Poppins", sans-serif;
+        font-size: 0.85em;
+        font-weight: 700;
+    }
+
+    &logo{
+        @extend %init;
+        font-family: "Teko", sans-serif;
+        color: white;
+        width: 160px;
+        margin-left: calc(50vw - 280px);
+        font-size: 1.9em;
+        font-weight: 700;
+    }
+}
