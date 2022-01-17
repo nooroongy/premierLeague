@@ -7,6 +7,10 @@ import Tables from "./routes/Tables";
 import './css/common.css'
 import { connect } from "react-redux";
 import Nft from "./routes/Nft";
+import SignIn from "./routes/SignIn";
+import SignUp from "./routes/SignUp";
+import SignUpPersonal from "./routes/SignUpPersonal";
+import SignUpEnterprise from "./routes/SignUpEnterprise";
 
 function App({ clubs, matchs }) {
   return (
@@ -18,6 +22,10 @@ function App({ clubs, matchs }) {
           <Route path='premierLeague/result' element={<Results clubs={clubs} matchs={matchs} />}></Route>
           <Route path='premierLeague/table' element={<Tables clubs={clubs} matchs={matchs} />}></Route>
           <Route path='premierLeague/nft' element={<Nft></Nft>}></Route>
+          <Route path='premierLeague/signin' element={<SignIn></SignIn>}></Route>
+          <Route path='premierLeague/signup' element={<SignUp></SignUp>}></Route>
+          <Route path='premierLeague/signup/personal' element={<SignUpPersonal></SignUpPersonal>}></Route>
+          <Route path='premierLeague/signup/enterprise' element={<SignUpEnterprise></SignUpEnterprise>}></Route>
         </Routes>
       </div>
       {/* <Footer /> */}

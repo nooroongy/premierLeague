@@ -14,6 +14,12 @@ const Header = ({ }) => {
             <Link to='premierLeague/nft'>
                 <button className='header-link'>NFT</button>
             </Link>
+            <Link to='premierLeague/signin'>
+                <button className='header-link'>Sign In</button>
+            </Link>
+            <Link to='premierLeague/signup'>
+                <button className='header-link'>Sign Up</button>
+            </Link>
         </span>
         <Link to='premierLeague'>
             <button className='header-logo'>Not For Sale</button>
