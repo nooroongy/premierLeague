@@ -1,7 +1,7 @@
 const Input = (inputObj) => {
-    const {children, className, placeholder, change, maxlength, readonly, hidden } = inputObj;
+    const {children, className, placeholder, change, maxlength, readonly, hidden, type, keyup, blur } = inputObj;
 
-    const testKeyUp = (e) => {
+    const autoSkip = (e) => {
         if(typeof(maxlength) != undefined){
             var target = e.target;
             var maxLength = maxlength;
@@ -20,15 +20,39 @@ const Input = (inputObj) => {
         }
     }
 
+    const inputKeyUp = (parentEvent, inputType, e) => {
+        if(e.code == "Tab" || e.code =="ShiftLeft") {
+            return;
+        }
+
+        autoSkip(e);
+
+        if(typeof(parentEvent) != "undefined")
+        parentEvent(e);
+    }
+
+    const inputBlur = (parentEvent, inputType, e) => {
+        const parentValue = e.target.value;
+        const parentType = inputType;
+        if(parentType === "email" && (parentValue.indexOf("@") === -1 || parentValue.indexOf(".") === -1)){
+            return alert("이메일 형식이 아닙니다!");
+        }
+
+        if(typeof(parentEvent) != "undefined")
+        parentEvent(e);
+    }
+
     return (
         <input 
             className={className}
             onChange={change}
+            onBlur={(e)=>inputBlur(blur,type,e)}
             placeholder={placeholder}
             maxLength={maxlength}
             readOnly={readonly}
             hidden={hidden}
-            onKeyUp={testKeyUp}
+            onKeyUp={(e)=>inputKeyUp(keyup,type,e)}
+            type={type}
         >
             {children}
         </input>
