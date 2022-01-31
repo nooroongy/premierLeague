@@ -1,9 +1,16 @@
 const Button = (btnObj) => {
-    const {children, className, click } = btnObj;
+    const {children, className, click, disabled } = btnObj;
+
+    const buttonClick = (parentEvent, e) => {
+        if(typeof(parentEvent) != "undefined")
+        parentEvent(e);
+    }
+
     return (
         <button 
             className={className}
-            onClick={click}
+            onClick={(e)=>buttonClick(click,e)}
+            disabled={disabled}
         >
             {children}
         </button>

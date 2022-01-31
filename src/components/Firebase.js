@@ -5,9 +5,9 @@ import { getFirestore,getDocs,collection,addDoc,deleteDoc ,doc,updateDoc} from "
 import firebaseInfo from '../json/firebase.json'; 
 const firebaseConfig = firebaseInfo;
 
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
 export const provider = new GoogleAuthProvider();
-export const auth = getAuth();
+export const auth = getAuth(app);
 export const db = getFirestore();
 
 export const FB_AUTH = {

@@ -1,6 +1,8 @@
 import Button from '../components/Button'
 import Input from '../components/Input'
 import { useState, useEffect } from "react";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from './../components/Firebase';
 
 const SignIn = () => {
     const [emailValue, setEmail] = useState("");
@@ -11,16 +13,30 @@ const SignIn = () => {
     }
     const passwordKeyUp = (e) => {
         setPassword(e.target.value);
-    }
-    const btnClick = (e) => {
-        console.log(emailValue);
-        console.log(passwordValue);
-    }
-    
+    }    
     const inputChange = (e) => {
         // console.log("inputChange");
         // console.log(e.target.value);
     }
+    const btnClick = (e) => {
+        console.log(emailValue);
+        console.log(passwordValue);
+
+        // sign-in
+        Logon();
+    }
+    const Logon = async () => {
+        try {
+            const user = await signInWithEmailAndPassword(
+                auth,
+                emailValue,
+                passwordValue
+            );
+            console.log(user);
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
     return(
         <>
             <Input keyup={emailKeyUp} className="userId" placeholder="id" change={inputChange} maxlength={20}></Input>

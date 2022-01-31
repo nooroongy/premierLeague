@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 const Input = (inputObj) => {
+    const [passwordHide, setPasswordHide] = useState(true);
+
     const {children, className, placeholder, change, maxlength, readonly, hidden, type, keyup, blur } = inputObj;
 
     const autoSkip = (e) => {
@@ -8,8 +12,8 @@ const Input = (inputObj) => {
             var myLength = target.value.length;
             if (myLength >= maxLength) {
                 var next = target;
-                while (next = next.nextElementSibling) {
-                    if (next == null)
+                while (next = next.nextSibling) {
+                    if (next === null)
                         break;
                     if (next.tagName.toLowerCase() === "input") {
                         next.focus();
@@ -21,13 +25,13 @@ const Input = (inputObj) => {
     }
 
     const inputKeyUp = (parentEvent, inputType, e) => {
-        if(e.code == "Tab" || e.code =="ShiftLeft") {
+        if(e.code === "Tab" || e.code === "ShiftLeft") {
             return;
         }
 
         autoSkip(e);
 
-        if(typeof(parentEvent) != "undefined")
+        if(typeof(parentEvent) !== "undefined")
         parentEvent(e);
     }
 
@@ -38,24 +42,43 @@ const Input = (inputObj) => {
             return alert("이메일 형식이 아닙니다!");
         }
 
-        if(typeof(parentEvent) != "undefined")
+        if(typeof(parentEvent) !== "undefined")
         parentEvent(e);
     }
 
+    const changePasswordHide = (e) => {
+        const targetText = e.target.textContent;
+        if(targetText === "SHOW"){
+            e.target.previousSibling.type = '';
+            setPasswordHide(false);
+        }else if(targetText === "HIDE"){
+            e.target.previousSibling.previousSibling.type = 'password';
+            setPasswordHide(true);
+        }
+    }
+
     return (
-        <input 
-            className={className}
-            onChange={change}
-            onBlur={(e)=>inputBlur(blur,type,e)}
-            placeholder={placeholder}
-            maxLength={maxlength}
-            readOnly={readonly}
-            hidden={hidden}
-            onKeyUp={(e)=>inputKeyUp(keyup,type,e)}
-            type={type}
-        >
+        <div>
+            <input 
+                className={className}
+                onChange={change}
+                onBlur={(e)=>inputBlur(blur,type,e)}
+                placeholder={placeholder}
+                maxLength={maxlength}
+                readOnly={readonly}
+                hidden={hidden}
+                onKeyUp={(e)=>inputKeyUp(keyup,type,e)}
+                type={type}
+            >
             {children}
         </input>
+        {type === 'password' ? 
+            <>
+                <span onClick={changePasswordHide} hidden={!passwordHide}>SHOW</span>
+                <span onClick={changePasswordHide} hidden={passwordHide}>HIDE</span>
+            </> 
+            : ''}
+        </div>
     )
 }
 
