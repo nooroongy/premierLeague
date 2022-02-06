@@ -1,6 +1,15 @@
+import Card from "../components/Card";
+import Toogle from "../components/Toogle";
+
 const Nft = () =>{
     return(
-        <div>NFT</div>
+        <div>
+            
+            <Card>
+                <Toogle></Toogle>
+            </Card>
+
+        </div>
     )
 }
 
